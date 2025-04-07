@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    background: #DFE6E9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1, p {
+    text-align: center;
+}
+
+.container {
+    width: clamp(100px, 90%, 600px);
+    max-height: 90vh;
+    background: #B2BEC3;
+    padding: min(2vw, 20px);
+    margin: 2rem auto;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.taskList {
+    flex-grow: 1;
+    max-height: 80%;
+    overflow-y: auto;
+    padding-right: 5px;
+/*     border: 1px solid #ddd; */
+    border-radius: 8px;
+}
+
+
+.add-task {
+    display: flex;
+    gap: clamp(0.4rem, 1vw, 1rem);
+
+}
+.add-task input{
+    flex-grow: 1;
+    border-radius: 20px;
+}
+
+.add-task button {
+    width: clamp(35px, 10vw, 50px); /* Responsive width */
+    height: clamp(35px, 10vw, 50px); /* Responsive height */
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #5a656b;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.icon {
+    width: clamp(16px, 3vw, 24px); /* Responsive icon size */
+    color: white;
+}
+
+
+
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    font-family: inherit;
+    border-radius: 8px;
+    border: 1px solid #636E72;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+button {
+    background: #636E72;
+    color: white;
+    cursor: pointer;
+    border-radius: 30PX;
+}
+
+button:hover, button:focus {
+    background: #464e51;
+}
+
+button:active {
+    background: #636E72;
+    transition: .5s ease;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5em;
+/*     border-bottom: 1px solid #ddd; */
+    background: #ffffff;
+    border-radius: 20px;
+    margin: 1rem 0;
+}
+
+.task-item .task-checkbox {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.task-item .task-text {
+    flex-grow: 1;
+    text-decoration: none;
+    color: black;
+}
+
+.task-item .task-text.checked {
+    text-decoration: line-through !important;
+    padding: 0.1em;
+}
+
+.task-item input {
+    border: none; /* Removes the border */
+    outline: none; /* Removes the blue outline on focus */
+    background: transparent; /* Makes the background match the task item */
+    padding: 0.1em;
+
+}
+
+.task-item input:focus {
+    border: 1px solid #636E72; /* Show border when active */
+    background: white; /* Optional: Make it stand out */
+    border-radius: 5px;
+}
+
+.task-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.task-buttons button {
+    padding: 6px 10px;
+    font-size: 14px;
+}
+
+.taskList::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.taskList::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light background for the track */
+    border-radius: 10px;
+}
+
+.taskList::-webkit-scrollbar-thumb {
+    background: #636E72; /* Blue scrollbar thumb */
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.taskList::-webkit-scrollbar-thumb:hover {
+    background: #636E72; /* Darker blue on hover */
+}
+
+/* Scrollbar styling for Firefox */
+.taskList {
+    scrollbar-width: thin;
+    scrollbar-color: #636E72 #f1f1f1; /* Thumb color, Track color */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.modal button {
+    margin: 5px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+@media only screen and (max-width: 600px) and (min-aspect-ratio: 16/9) {
+    body{
+        font-size: 0.6rem;
+    }
+    .container {
+        width: 90%;
+        height: min(500px, 80vh);
+    }
+    .taskList {
+        max-height: 60%;
+    }
+}
